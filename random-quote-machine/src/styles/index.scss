@@ -1,0 +1,31 @@
+@import "base";
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  left: -9999999px;
+}
+
+@media (max-width: 600px) {
+  :root {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px), (max-height: 400px) {
+  :root {
+    font-size: 10px;
+  }
+}

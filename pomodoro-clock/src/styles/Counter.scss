@@ -1,0 +1,150 @@
+@import "base";
+
+.counter-container {
+  margin: 0.5rem 1rem;
+  padding: 0.5rem 0.25rem 0.25rem 0.25rem;
+  width: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  
+  .counter-screen {
+    width: 90%;
+    padding: 0.5rem 0.25rem 0 0.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    @include emboss;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    font-size: 1.75rem;
+  
+    .counter-value-container {
+      width: 90%;
+      padding: 1rem;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      border: 2px solid $clock-light-color;
+      box-shadow:
+        inset 0 0 1rem 0.25rem $clock-dark-color-a75,
+        0.1rem 0.1rem 0.25rem $clock-dark-color-a75;
+      background-color: $clock-paper-color;
+      
+      .counter-value-placeholder {
+        opacity: 0;
+      }
+      
+      .counter-value {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform-origin: center bottom;
+        
+        &.hide {
+          display: none;
+        }
+        
+        $states: (up, down);
+        $dirs: (left, right);
+        
+        @each $state in $states {
+          &.#{$state} {
+            @each $dir in $dirs {
+              &.#{$dir} {
+                animation: #{$state}-#{$dir} $rotate-props;
+              }
+            }
+          }
+        }
+        
+        @keyframes down-left {
+          0% {
+            transform: translateZ(0) rotate(0deg);
+          }
+          
+          100% {
+            transform: translateZ(0) rotate(-180deg);
+          }
+        }
+          
+        @keyframes down-right {
+          0% {
+            transform: translateZ(0) rotate(0deg);
+          }
+          
+          100% {
+            transform: translateZ(0) rotate(180deg);
+          }
+        }
+        
+        @keyframes up-left {
+          0% {
+            transform: translateZ(0) rotate(-180deg);
+          }
+          
+          100% {
+            transform: translateZ(0) rotate(0deg);
+          }
+        }
+          
+        @keyframes up-right {
+          0% {
+            transform: translateZ(0) rotate(180deg);
+          }
+          
+          100% {
+            transform: translateZ(0) rotate(0deg);
+          }
+        }
+      }
+    }
+    
+    .counter-label {
+      width: calc(100% + 0.5rem);
+      padding: 0.1rem 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 1.25rem;
+      @include text(1.25rem);
+    }
+  }
+  
+  .counter-controls {
+    width: 100%;
+    padding: 0.1rem 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-height: 450px) {
+  .counter-container {
+    position: absolute;
+    bottom: 1.5rem;
+  
+    &:first-of-type {
+      left: 2rem;
+    }
+    
+    &:last-of-type {
+      right: 2rem;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@import "base";
+     
+.drum-pad {
+  @include flex-center(row);
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 10%;
+  background-color: hsl(300, 15%, 12%);
+  border: 2px solid hsl(0, 80%, 60%);
+  box-shadow:
+    0 0 0.1rem 0rem hsl(0, 80%, 60%),
+    0 0.25rem 0.25rem 0.25rem black,
+    0 0.5rem 0.5rem 0.3rem hsl(0, 80%, 50%);
+  transition: 0.2s;
+  
+  &.active {
+    background-color: hsl(0, 80%, 60%);
+    color: hsl(300, 15%, 12%);
+    box-shadow:
+      0 0 0.5rem 0rem hsl(0, 80%, 60%),
+      0 0.25rem 0.25rem 0.25rem black,
+      0 0.5rem 1.5rem 0.5rem hsl(0, 80%, 60%);
+  }
+}
+
+.off {
+  .drum-pad {
+    border: 2px solid hsl(0, 10%, 20%);
+    box-shadow:
+      0 0.25rem 0.25rem 0.25rem black;
+  }
+}

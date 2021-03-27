@@ -1,0 +1,64 @@
+@import "base";
+
+.knob-input {
+  @include flex-center(column);
+  padding: 1rem;
+  
+  .knob-input-label {
+    display: inline-block;
+    padding: 0.5rem;
+  }
+  
+  .knob-input-control {
+    @include flex-center(row);
+    position: relative;
+    
+    .knob-input-dial {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      position: relative;
+      z-index: 999;
+      cursor: pointer;
+      transform-origin: center;
+      background-color: hsl(300, 15%, 12%);
+      
+      .knob-input-dial-pointer {
+        position: absolute;
+        width: 0.75rem;
+        height: 0.2rem;
+        top: 50%;
+        left: 0.075rem;
+        background-color: red;
+      }
+    }
+    
+    .knob-input-dial-shadow {
+      position: absolute;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+    }
+  }
+}
+
+@media (max-width: 450px), (max-height: 450px) {
+  .knob-input {
+    .knob-input-control {
+      .knob-input-dial {
+        width: 4rem;
+        height: 4rem;
+
+        .knob-input-dial-pointer {
+          width: 1rem;
+          height: 0.3rem;
+        }
+      }
+
+      .knob-input-dial-shadow {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+@import "base";
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: 0.5rem;
+  text-align: center;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.5rem;
+  background-color: $primary-color;
+  color: $secondary-color;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 0.1rem 0.1rem $shadow-color;
+  
+  .heading {
+    margin: 0;
+  }
+}
+
+#editor {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  outline: none;
+  resize: none;
+  border: none;
+  font-family: "Fira Mono", monospace;
+  font-size: 1.25rem;
+  background-color: $editor-bg-color;
+  color: $editor-font-color;
+}
+
+#preview {
+  min-width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.25rem;
+  background-color: $previewer-bg-color;
+  color: $previewer-font-color;
+  
+  @for $i from 1 through 6 {
+    h#{$i} {
+      font-family: "Kurale", serif;
+      font-size: 0.5rem * (7 - $i);
+    }
+  }
+  
+  a {
+    color: $previewer-accent-color;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.05em;
+  }
+  
+  code {
+    font-family: "Fira Mono", monospace;
+    padding: 0.1rem 0.25rem;
+    background-color: $previewer-sec-bg-color;
+    color: $previewer-sec-font-color;
+    border-radius: 5px;
+  }
+  
+  pre {
+    margin: 1rem auto;
+    width: 90%;
+    display: block;
+    white-space: pre-wrap;
+    padding: 1rem;
+    background-color: $previewer-sec-bg-color;
+    color: $previewer-sec-font-color;
+    border-radius: 5px;
+    
+    .hljs-comment {
+      color: hsl(120, 60%, 20%);
+    }
+  }
+  
+  blockquote {
+    margin: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-left: 8px solid $previewer-accent-color;
+    
+    p {
+      margin: 0;
+    }
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 2px solid $previewer-accent-color;
+    
+    th {
+      background-color: $previewer-sec-font-color;
+      color: $previewer-sec-bg-color;
+    }
+    
+    th, td {
+      border: 2px solid $previewer-accent-color;
+      word-break: break-all;
+      padding: 0.5rem;
+    }
+  }
+}

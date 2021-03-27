@@ -1,0 +1,98 @@
+@import "base";
+
+#quote-box {
+  width: 100%;
+  display: inline-block;
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  background-color: $mainColor;
+  box-shadow: 0 0.2rem 0.3rem $shadowColor;
+  transition: width 1s, height 1s;
+  
+  .controls {
+    margin: 2rem 0rem 0rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    
+    .control {
+      padding: 0.75rem 1rem;
+      border-radius: 0.25rem;
+      border: none;
+      cursor: pointer;
+      font-family: "Open Sans", sans-serif;
+      font-size: 1rem;
+      color: $mainColor;
+      transition: background-color 0.2s linear;
+      outline: none;
+      
+      &:hover {
+        transition: background-color 0.2s linear;
+      }
+      
+      i {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+
+@each $num, $val in $colors {
+  .theme-#{$num} {
+    .control {
+      background-color: map-get($val, primary);
+      
+      &:hover {
+        background-color: map-get($val, secondary);
+      }
+    }
+  }
+}
+
+#tweet-quote {
+  position: relative;
+  
+  .fly-away {
+    position: absolute;
+    opacity: 0;
+  }
+  
+  &:hover {
+    .icon {
+      opacity: 0;
+    }
+    
+    .fly-away {
+      animation: fly-away 3s ease-in forwards;
+      opacity: 1;
+      left: 30%;
+      top: 30%;
+      filter: drop-shadow(0 5px 5px $shadowColor);
+    }
+  }
+    
+  @keyframes fly-away {
+    30% {
+      left: random() * -200%;
+    }
+    
+    60% {
+      left: random() * 1500%;
+    }
+    
+    100% {
+      top: -1500%;
+      left: random() * -500%;
+    }
+  }
+}
+
+@media (max-width: 400px), (max-height: 400px) {
+  #quote-box {
+    padding: 1.5rem 2rem;
+    
+    .controls {
+      margin: 1rem 0 0 0;
+    }
+  }
+}

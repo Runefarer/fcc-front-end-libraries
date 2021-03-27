@@ -1,0 +1,50 @@
+@import "base";
+
+.quote-content {
+  font-family: "Bilbo Swash Caps", cursive;
+  font-weight: 900;
+  
+  .quote-text {
+    margin: 0;
+    text-align: center;
+    font-size: 2.5rem;
+    
+    i {
+      display: block;
+    }
+    
+    i:first-child {
+      text-align: left;
+    }
+    
+    i:last-child {
+      text-align: right;
+    }
+  }
+  
+  .quote-author {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2rem;
+    padding: 0.5rem 0rem;
+    
+    #author:before {
+      content: "\2014";
+      padding: 0rem 0.5rem;
+    }
+  }
+}
+
+@each $num, $val in $colors {
+  .theme-#{$num} {
+    .quote-content {
+      color: map-get($val, primary);
+    }
+  }
+}
+
+@media (max-width: 400px), (max-height: 400px) {
+  .quote-content p {
+    margin: 1rem auto;
+  }
+}

@@ -1,0 +1,65 @@
+@import "base";
+
+.radio-input {
+  @include flex-center(column);
+  padding: 1rem;
+  
+  .radio-input-label {
+    display: inline-block;
+    padding: 0.5rem;
+  }
+  
+  .radio-input-controls {
+    @include flex-center(row);
+    flex-wrap: wrap;
+    
+    .radio-input-control {
+      width: 2rem;
+      height: 2rem;
+      margin: 0.25rem;
+      @include flex-center(column);
+      cursor: pointer;
+      border-radius: 15%;
+      background-color: hsl(0, 35%, 65%);
+      box-shadow:
+        inset 0 0 0.2rem 0.1rem hsl(0, 15%, 40%),
+        0 0 1.5rem 0.1rem hsl(0, 25%, 45%);
+      transition: 0.2s;
+      
+      .radio-input-fill {
+        width: 70%;
+        height: 70%;
+        border-radius: 15%;
+        opacity: 0;
+        background-color: hsl(350, 100%, 60%);
+        box-shadow:
+          0 0 0.5rem -0.1rem hsl(350, 80%, 40%);
+        transition: 0.2s ease-in-out;
+      }
+      
+      &.checked:not(.disabled) {
+        .radio-input-fill {
+          opacity: 1;
+        }
+      }
+      
+      &.disabled {
+        background-color: hsl(0, 25%, 25%);
+        box-shadow:
+          inset 0 0 0.2rem 0.1rem hsl(0, 15%, 10%);
+      }
+    }
+  }
+}
+
+@media (max-width: 450px), (max-height: 450px) {
+  .radio-input {
+    .radio-input-controls {
+      .radio-input-control {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin: 0.25rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+$rotate-props: 0.6s forwards cubic-bezier(0, -1, 0.7, 2);
+$spin-props: 0.5s forwards cubic-bezier(0, -0.75, 0.8, 1.75);
+
+$clock-main-color: hsl(20, 10%, 50%);
+$clock-dec-color: hsl(20, 30%, 50%);
+$clock-fade-color: hsl(25, 20%, 40%);
+$clock-light-color: hsl(20, 20%, 70%);
+$clock-dark-color: hsl(20, 20%, 10%);
+$clock-paper-color: hsl(250, 10%, 80%);
+
+$clock-light-color-a75: hsla(30, 20%, 70%, 0.75);
+$clock-dark-color-a75: hsla(30, 20%, 10%, 0.75);
+$clock-dark-color-a50: hsla(30, 20%, 10%, 0.50);
+  
+@mixin emboss {
+  background-color: $clock-main-color;
+  border: 1px solid $clock-dark-color-a75;
+  border-radius: 0.25rem;
+  box-shadow:
+    inset 0.1rem 0.1rem 0.1rem 0rem $clock-light-color,
+    0.1rem 0.1rem 0.1rem 0 $clock-dark-color-a75;
+}
+
+@mixin text($size) {
+  $lightSize: $size * 0.075;
+  $darkSize: $size * 0.025;
+  $shadowSize: $size * 0.05;
+  
+  font-weight: 900;
+  color: $clock-main-color;
+  text-shadow:
+    -1 * $lightSize -1 * $lightSize 0rem $clock-light-color,
+    -1 * $darkSize -1 * $darkSize 0rem $clock-dark-color-a75,
+    $darkSize -1 * $darkSize 0rem $clock-dark-color-a75,
+    -1 * $darkSize $darkSize 0rem $clock-dark-color-a75,
+    $darkSize $darkSize 0rem $clock-dark-color-a75;
+  filter: drop-shadow($shadowSize $shadowSize $shadowSize $clock-dark-color-a75);
+}

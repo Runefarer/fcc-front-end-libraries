@@ -1,0 +1,45 @@
+$mainColor: #fff;
+$shadowColor: rgba(0, 0, 0, 0.5);
+
+$colors: (
+  1: (
+    primary: hsl(350, 50%, 30%),
+    secondary: hsl(350, 60%, 40%)
+  ),
+  2: (
+    primary: hsl(320, 40%, 30%),
+    secondary: hsl(320, 50%, 40%)
+  ),
+  3: (
+    primary: hsl(290, 30%, 20%),
+    secondary: hsl(290, 40%, 30%)
+  ),
+  4: (
+    primary: hsl(260, 50%, 30%),
+    secondary: hsl(260, 60%, 40%)
+  ),
+  5: (
+    primary: hsl(230, 40%, 30%),
+    secondary: hsl(230, 50%, 40%)
+  ),
+  6: (
+    primary: hsl(200, 60%, 20%),
+    secondary: hsl(200, 70%, 30%)
+  ),
+  7: (
+    primary: hsl(170, 60%, 20%),
+    secondary: hsl(170, 70%, 30%)
+  ),
+  8: (
+    primary: hsl(140, 30%, 20%),
+    secondary: hsl(140, 40%, 30%)
+  ),
+  9: (
+    primary: hsl(80, 30%, 20%),
+    secondary: hsl(80, 40%, 30%)
+  ),
+  10: (
+    primary: hsl(30, 50%, 20%),
+    secondary: hsl(30, 60%, 30%)
+  )
+);

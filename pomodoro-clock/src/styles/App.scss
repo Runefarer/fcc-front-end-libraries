@@ -1,0 +1,84 @@
+@import "base";
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: radial-gradient(hsl(200, 20%, 40%), hsl(250, 20%, 10%));
+}
+
+.clock {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  border-radius: 0.5rem;
+  background-color: $clock-main-color;
+  border: 2px solid $clock-dark-color;
+  box-shadow:
+    inset 0 -0.1rem 0.2rem 0.2rem $clock-light-color-a75,
+    inset 0 -0.25rem 0.5rem 0.75rem $clock-fade-color,
+    0 1.1rem 1rem -0.4rem $clock-dark-color;
+  font-family: "Unica One", cursive;
+  
+  .clock-header {
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+    @include text(2rem);
+  }
+  
+  .clock-counters {
+    display: flex;
+  }
+  
+  &.alarm {
+    animation: clock-alarm 0.2s linear infinite;
+  }
+  
+  @keyframes clock-alarm {
+    20% {
+      transform: translateZ(0) rotate(-5deg);
+    }
+    
+    80% {
+      transform: translateZ(0) rotate(5deg);
+    }
+  }
+  
+  .button {
+    margin: 0.1rem 0.25rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    color: $clock-dec-color;
+    @include emboss;
+    text-shadow:
+      0.05rem 0.05rem 0 $clock-dark-color,
+      0.05rem -0.05rem 0 $clock-dark-color,
+      -0.05rem 0.05rem 0.1rem $clock-light-color;
+    transition: 0.2s;
+    
+    &.active, &:active {
+      background-color: $clock-fade-color;
+      border: 1px solid $clock-dark-color;
+      box-shadow:
+        inset -0.1rem -0.1rem 0.3rem 0.1rem $clock-dark-color-a75;
+      color: $clock-main-color;
+      text-shadow:
+        0.05rem 0.05rem 0.1rem $clock-dark-color-a75,
+        0.05rem -0.05rem 0.1rem $clock-dark-color-a75;
+    }
+  }
+}
+
+@media (max-height: 450px) {
+  .clock {
+    width: 90%;
+    position: relative;
+  }
+}

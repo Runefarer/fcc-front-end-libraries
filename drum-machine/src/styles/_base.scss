@@ -1,0 +1,15 @@
+@mixin flex-center($dir) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: center;
+  justify-content: center;
+}
+
+$bg-light-color: hsl(200, 80%, 15%);
+$bg-dark-color: hsl(200, 20%, 5%);
+
+$machine-color: hsl(300, 95%, 5%);
+$text-color: hsl(30, 60%, 90%);
+
+$machine-font: "Audiowide", cursive;
+$display-font: "VT323", monospace;

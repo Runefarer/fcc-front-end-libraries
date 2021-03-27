@@ -1,0 +1,84 @@
+@import "base";
+
+.number-dial {
+  position: relative;
+  padding: 0.25rem;
+  margin: 0 1px;
+  border-radius: 30%;
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 10rem;
+  font-size: 1.75rem;
+  background-image: 
+    linear-gradient(0deg, $clock-dark-color-a50 1%, $clock-paper-color 50%, $clock-dark-color-a50);
+  box-shadow:
+    0 0 0.25rem 0 $clock-dark-color-a75;
+  
+  .number-placeholder {
+    opacity: 0;
+  }
+  
+  .number-value {
+    position: absolute;
+    
+    &.hide {
+      display: none;
+    }
+    
+    $states: (enter, exit);
+    $dirs: (up, down);
+    
+    @each $state in $states {
+      &.#{$state} {
+        @each $dir in $dirs {
+          &.#{$dir} {
+            animation: number-#{$state}-#{$dir} $spin-props;
+          }
+        }
+      }  
+    }
+    
+    @keyframes number-exit-up {
+      0% {
+        transform: translateZ(0) rotateX(0deg) translateY(0%);
+      }
+      
+      100% {
+        transform: translateZ(0) rotateX(-45deg) translateY(-150%);
+      }
+    }
+    
+    @keyframes number-enter-up {
+      0% {
+        transform: translateZ(0) rotateX(45deg) translateY(150%);
+      }
+      
+      100% {
+        transform: translateZ(0) rotateX(0deg) translateY(0%);
+      }
+    }
+    
+    @keyframes number-exit-down {
+      0% {
+        transform: translateZ(0) rotateX(0deg) translateY(0%);
+      }
+      
+      100% {
+        transform: translateZ(0) rotateX(45deg) translateY(150%);
+      }
+    }
+    
+    @keyframes number-enter-down {
+      0% {
+        transform: translateZ(0) rotateX(-45deg) translateY(-150%);
+      }
+      
+      100% {
+        transform: translateZ(0) rotateX(0deg) translateY(0%);
+      }
+    }
+  }
+}

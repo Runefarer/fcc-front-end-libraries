@@ -1,0 +1,3 @@
+export const DOCK_HORIZONTAL = "HORIZONTAL";
+export const DOCK_VERTICAL = "VERTICAL";
+export const DOCK_COLLAPSED_SIZE = 40;

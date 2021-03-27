@@ -1,0 +1,22 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  left: -999999px;
+}
+
+@media (max-width: 450px), (max-height: 450px) {
+  :root {
+    font-size: 12px;
+  }
+}
